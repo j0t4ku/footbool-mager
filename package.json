@@ -1,0 +1,11 @@
+{
+  "name": "fotbool-manager",
+  "version": "1.0.0",
+  "description": "Projecto de pagina web de equipos y jugadores de footbol",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "joel ismar florentin",
+  "license": "ISC"
+}
