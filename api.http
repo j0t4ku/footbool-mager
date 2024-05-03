@@ -1,0 +1,26 @@
+### Recuperar todas los players
+GET http://localhost:3000/players/
+
+### Recuperar players por id
+GET http://localhost:3000/players/1
+
+### Crear una player con POST
+POST http://localhost:3000/players/
+Content-Type: application/json
+
+{
+    "id":2,
+    "firstname": "juan",
+    "lastname": "Lopez"
+}
+
+### Acturalizar player
+PATCH http://localhost:3000/players/2
+Content-Type: application/json
+
+{
+    "lastname":"garcia"
+}
+
+### Borrar una pelicula 
+DELETE http://localhost:3000/players/2

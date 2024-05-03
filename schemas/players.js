@@ -5,7 +5,7 @@ const playerSchema = z.object({
     firstname: z.string({
         invalid_type_error: 'First Name must be a string',
         required_error: 'First Name is rquired'
-    }),
+    }).min(3),
     lastname: z.string({
         invalid_type_error: 'Last Name must be a string',
         required_error: 'Last Name is rquired'

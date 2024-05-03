@@ -21,7 +21,7 @@ try {
 }
 
 // Declare a route
-fastify.register(routesPlayers)
+fastify.register(routesPlayers, { prefix: '/players' })
 
 
 // Run the server

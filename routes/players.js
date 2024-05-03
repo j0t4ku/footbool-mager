@@ -5,10 +5,10 @@ const player = new PlayersController({ playerModel: PlayersModel })
 
 async function routesPlayers(fastify, options) {
     fastify.get('/', player.getAll),
-        fastify.get('/', player.getById),
+        fastify.get('/:id', player.getById),
         fastify.post('/', player.create),
-        fastify.delete('/', player.delete),
-        fastify.patch('/', player.update)
+        fastify.delete('/:id', player.delete),
+        fastify.patch('/:id', player.update)
 
 }
 
