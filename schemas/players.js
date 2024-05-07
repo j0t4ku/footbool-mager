@@ -10,6 +10,14 @@ const playerSchema = z.object({
         invalid_type_error: 'Last Name must be a string',
         required_error: 'Last Name is rquired'
     }),
+    dorsal: z.number({
+        invalid_type_error: 'dorsal must be a number',
+        required_error: 'dorsal is rquired'
+    }),
+    idteam: z.number({
+        invalid_type_error: 'Id team must be a number',
+        required_error: 'Id team is rquired'
+    }),
 
 })
 

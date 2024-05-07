@@ -20,6 +20,16 @@ PlayersModel.init(
             allowNull: false,
             // allowNull defaults to true
         },
+        dorsal: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            // allowNull defaults to true
+        },
+        idteam: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            // allowNull defaults to true
+        },
     },
     {
         // Other model options go here

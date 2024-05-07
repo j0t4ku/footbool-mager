@@ -3,6 +3,7 @@ import cors from '@fastify/cors'
 import { ACEPTED_ORIGIN } from './utils/const.js'
 import routesPlayers from './routes/players.js'
 import { sequelize } from './database/connection.js'
+import routesTeams from './routes/teams.js'
 
 
 const fastify = Fastify({
@@ -22,6 +23,8 @@ try {
 
 // Declare a route
 fastify.register(routesPlayers, { prefix: '/players' })
+fastify.register(routesTeams, { prefix: '/teams' })
+
 
 
 // Run the server

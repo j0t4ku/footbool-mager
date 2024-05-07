@@ -1,9 +1,9 @@
 import { Sequelize, DataTypes, Model } from 'sequelize';
 import { sequelize } from '../database/connection'
 
-class Teams extends Model { }
+class TeamsModels extends Model { }
 
-Teams.init(
+TeamsModels.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -12,6 +12,14 @@ Teams.init(
         },
         // Model attributes are defined here
         teamname: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        logo: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        stadium: {
             type: DataTypes.STRING,
             allowNull: false,
         }
@@ -23,3 +31,5 @@ Teams.init(
         tableName: 'teams',
     },
 );
+
+export { TeamsModels }
