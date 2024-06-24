@@ -4,6 +4,8 @@ import { ACEPTED_ORIGIN } from './utils/const.js'
 import routesPlayers from './routes/players.js'
 import { sequelize } from './database/connection.js'
 import routesTeams from './routes/teams.js'
+import fastifyJwt from '@fastify/jwt'
+import routesUsers from './routes/users.js'
 
 
 const fastify = Fastify({
@@ -14,6 +16,8 @@ await fastify.register(cors, {
     origin: ACEPTED_ORIGIN
 })
 
+fastify.register(fastifyJwt, { secret: process.env.SECRET })
+
 try {
     await sequelize.authenticate();
     console.log('Connection has been established successfully.');
@@ -23,7 +27,12 @@ try {
 
 // Declare a route
 fastify.register(routesPlayers, { prefix: '/players' })
+
 fastify.register(routesTeams, { prefix: '/teams' })
+
+fastify.register(routesUsers, { prefix: '/auth' })
+
+
 
 
 

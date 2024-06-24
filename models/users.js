@@ -1,9 +1,9 @@
 import { Sequelize, DataTypes, Model } from 'sequelize';
 import { sequelize } from '../database/connection.js'
 
-class TeamsModels extends Model { }
+class UserModels extends Model { }
 
-TeamsModels.init(
+UserModels.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -11,15 +11,19 @@ TeamsModels.init(
             primaryKey: true,
         },
         // Model attributes are defined here
-        teamname: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        logo: {
+        email: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        stadium: {
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        active: {
             type: DataTypes.STRING,
             allowNull: false,
         }
@@ -32,4 +36,4 @@ TeamsModels.init(
     },
 );
 
-export { TeamsModels }
+export { UserModels }

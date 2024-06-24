@@ -1,17 +1,15 @@
-import { where } from "sequelize"
 import { validatePartialSchema, validateSchema } from "../schemas/teams.js"
 
 export class TeamsController {
-    constructor({ teamsModel }) {
-        this.teamsModel = teamsModel
+    constructor({ teamsmodels }) {
+        this.teamsModel = teamsmodels
     }
 
     getAll = async (request, reply) => {
         try {
-            const players = await this.teamsModel.findAll()
+            const teams = await this.teamsModel.findAll()
 
-            if (teams) reply.send(teams).type('application/json')
-
+            if (teams.length > 0) reply.send(teams).type('application/json')
             return reply.code(404).send({ message: "Teams not found" }).type('application/json')
         } catch (error) {
             console.error('Error al obtener los datos:', error);
@@ -24,7 +22,7 @@ export class TeamsController {
             const { id } = req.params
             const team = await this.teamsModel.findByPk(id)
             if (team) return res.send(team).type('application/json')
-            return reply.code(404).send({ message: "Team not found" }).type('application/json')
+            return res.code(404).send({ message: "Team not found" }).type('application/json')
 
         } catch (error) {
             console.error('Error al obtener los datos:', error);
@@ -64,7 +62,8 @@ export class TeamsController {
             if (result.error) return res.code(400).send({ error: JSON.parse(result.error.message) })
 
             const { id } = req.params
-            const updatedTeam = await this.teamsModel.update(result.data, { where: { id: id } })
+            await this.teamsModel.update(result.data, { where: { id: id } })
+            const updatedTeam = await this.teamsModel.findByPk(id)
             return res.send(updatedTeam)
         } catch (error) {
             console.error('Error al obtener los datos:', error);

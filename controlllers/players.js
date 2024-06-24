@@ -10,7 +10,7 @@ export class PlayersController {
         try {
             const players = await this.playerModel.findAll()
 
-            if (players) reply.send(players).type('application/json')
+            if (players.length > 0) reply.send(players).type('application/json')
 
             return reply.code(404).send({ message: "Players not found" }).type('application/json')
         } catch (error) {
@@ -24,7 +24,7 @@ export class PlayersController {
             const { id } = req.params
             const player = await this.playerModel.findByPk(id)
             if (player) return res.send(player).type('application/json')
-            return reply.code(404).send({ message: "Player not found" }).type('application/json')
+            return res.code(404).send({ message: "Player not found" }).type('application/json')
 
         } catch (error) {
             console.error('Error al obtener los datos:', error);
