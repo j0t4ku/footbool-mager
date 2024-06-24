@@ -44,7 +44,7 @@ export class PlayersController {
             res.code(201).send(newPlayer)
         } catch (error) {
             console.error('Error al obtener los datos:', error);
-            res.code(500).send(error)
+            res.code(500).send("Erro al realizar la accion")
         }
     }
 

@@ -1,25 +1,31 @@
 ### Autencicaion JWT
-POST http://localhost:3000/auth/signup
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email":"joel@joel.com",
+    "password":"joel"
+}
 
 
 
 ### Crear una usuario con POST
-POST http://localhost:3000/teams/
+POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
     "username": "joel",
     "email":"joel@joel.com",
-    "password":"joel"
+    "pass":"joel123"
 }
 
-### Acturalizar teams
-PATCH http://localhost:3000/teams/2
+### Acturalizar user
+PATCH http://localhost:3000/auth/2
 Content-Type: application/json
 
 {
     "teamname":"Ameliano FC"
 }
 
-### Borrar un teams 
-DELETE http://localhost:3000/teams/2
+### Borrar un user 
+DELETE http://localhost:3000/auth/2

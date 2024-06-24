@@ -9,13 +9,11 @@ const userSchema = z.object({
         invalid_type_error: 'email must be a string',
         required_error: 'email is rquired'
     }).email(),
-    password: z.string({
+    pass: z.string({
         invalid_type_error: 'password must be a string',
         required_error: 'password is rquired'
     }).min(6, "Password must be a 5 character or more"),
-    active: z.string({
-        invalid_type_error: 'active must be a string',
-    })
+
 
 })
 

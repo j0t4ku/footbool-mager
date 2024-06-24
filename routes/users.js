@@ -6,8 +6,8 @@ const user = new UserController({
 })
 
 async function routesUsers(fastify, options) {
-    fastify.post('/', user.register),
-        fastify.post('/signup', user.auth),
+    fastify.post('/signin', user.auth),
+        fastify.post('/signup', user.register),
         fastify.delete('/:id', user.delete),
         fastify.patch('/:id', user.update)
 }

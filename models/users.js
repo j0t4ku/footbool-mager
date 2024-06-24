@@ -19,20 +19,20 @@ UserModels.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        password: {
+        pass: {
             type: DataTypes.STRING,
             allowNull: false,
         },
         active: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         }
     },
     {
         // Other model options go here
         sequelize, // We need to pass the connection instance
-        modelName: 'Teams', // We need to choose the model name
-        tableName: 'teams',
+        modelName: 'Users', // We need to choose the model name
+        tableName: 'users',
     },
 );
 
