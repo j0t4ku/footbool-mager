@@ -4,7 +4,7 @@ import { ACEPTED_ORIGIN } from './utils/const.js'
 import routesPlayers from './routes/players.js'
 import { sequelize } from './database/connection.js'
 import routesTeams from './routes/teams.js'
-import fastifyJwt from '@fastify/jwt'
+import jwt from '@fastify/jwt'
 import routesUsers from './routes/users.js'
 
 
@@ -16,7 +16,7 @@ await fastify.register(cors, {
     origin: ACEPTED_ORIGIN
 })
 
-fastify.register(fastifyJwt, { secret: process.env.SECRET })
+await fastify.register(jwt, { secret: "supersecreto" })
 
 try {
     await sequelize.authenticate();
@@ -24,6 +24,15 @@ try {
 } catch (error) {
     console.error('Unable to connect to the database:', error);
 }
+
+// Decorate authenticate for only some page
+fastify.decorate("authenticate", async function (request, reply) {
+    try {
+        await request.jwtVerify()
+    } catch (err) {
+        reply.send(err)
+    }
+})
 
 // Declare a route
 fastify.register(routesPlayers, { prefix: '/players' })

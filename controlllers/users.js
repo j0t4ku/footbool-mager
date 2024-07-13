@@ -1,4 +1,4 @@
-import fastify from "fastify"
+import { where } from "sequelize"
 import { validatePartialSchema, validateSchema } from "../schemas/users.js"
 
 export class UserController {
@@ -7,9 +7,22 @@ export class UserController {
         this.usermodels = usermodels
     }
 
-    auth = async (req, res) => {
-        const token = fastify.jwt.sign({ test: "test" })
-        res.send({ token })
+    auth = async (req, res, fastify) => {
+        try {
+            const result = validatePartialSchema(req.body)
+            if (result.error) {
+                return res.code(400).send({ error: JSON.parse(result.error.message) })
+            }
+            const user = await this.usermodels.findOne({ where: { email: result.data.email } })
+            if (user) {
+                const token = fastify.jwt.sign({ id: user.id, username: user.username })
+                res.send({ token })
+            }
+            res.send({ message: "Usuario o contraseña incorrecta" })
+        } catch (error) {
+            console.error('Error al firmar el token:', error);
+            res.status(500).send('Error interno del servidor');
+        }
     }
 
     logout = async (req, res) => {
