@@ -6,6 +6,7 @@ import { sequelize } from './database/connection.js'
 import routesTeams from './routes/teams.js'
 import jwt from '@fastify/jwt'
 import routesUsers from './routes/users.js'
+import cookie from '@fastify/cookie'
 
 
 const fastify = Fastify({
@@ -16,7 +17,15 @@ await fastify.register(cors, {
     origin: ACEPTED_ORIGIN
 })
 
-await fastify.register(jwt, { secret: "supersecreto" })
+await fastify.register(jwt, {
+    secret: process.env.SECRET,
+    cookie: {
+        cookieName: 'token',
+        signed: false
+    }
+})
+
+await fastify.register(cookie)
 
 try {
     await sequelize.authenticate();

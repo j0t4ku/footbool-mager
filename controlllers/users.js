@@ -15,8 +15,11 @@ export class UserController {
             }
             const user = await this.usermodels.findOne({ where: { email: result.data.email } })
             if (user) {
-                const token = fastify.jwt.sign({ id: user.id, username: user.username })
-                res.send({ token })
+                const token = fastify.jwt.sign({ id: user.id, username: user.username },)
+                return res.setCookie('token', token, {
+                    secure: false, // send cookie over HTTPS only
+                    httpOnly: false,
+                }).code(200).send(`Bienvenido ${user.username} `)
             }
             res.send({ message: "Usuario o contraseña incorrecta" })
         } catch (error) {
@@ -60,12 +63,11 @@ export class UserController {
     update = async (req, res) => {
         try {
             const result = validatePartialSchema(req.body)
-
             if (result.error) return res.code(400).send({ error: JSON.parse(result.error.message) })
-
             const { id } = req.params
             await this.usermodels.update(result.data, { where: { id: id } })
             const updatedUser = await this.usermodels.findByPk(id)
+            console.log(updatedUser)
             return res.send(updatedUser)
         } catch (error) {
             console.error('Error al obtener los datos:', error);
