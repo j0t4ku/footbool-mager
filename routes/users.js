@@ -9,6 +9,10 @@ async function routesUsers(fastify, options) {
 
     fastify.post('/signin', (req, res) => user.auth(req, res, fastify)),
         fastify.post('/signup', user.register),
+        fastify.post('/logout', {
+            onRequest: [fastify.authenticate]
+        },
+            user.logout),
         fastify.delete('/:id', user.delete),
         fastify.patch('/:id', {
             onRequest: [fastify.authenticate]

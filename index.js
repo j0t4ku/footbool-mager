@@ -37,7 +37,8 @@ try {
 // Decorate authenticate for only some page
 fastify.decorate("authenticate", async function (request, reply) {
     try {
-        await request.jwtVerify()
+        const isAuth = await request.jwtVerify()
+        if (!isAuth) return reply.send({ message: 'Usuario no autenticado' })
     } catch (err) {
         reply.send(err)
     }

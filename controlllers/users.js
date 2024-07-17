@@ -19,7 +19,7 @@ export class UserController {
                 return res.setCookie('token', token, {
                     secure: false, // send cookie over HTTPS only
                     httpOnly: false,
-                }).code(200).send(`Bienvenido ${user.username} `)
+                }).code(200).send(user.username)
             }
             res.send({ message: "Usuario o contraseña incorrecta" })
         } catch (error) {
@@ -29,7 +29,12 @@ export class UserController {
     }
 
     logout = async (req, res) => {
-
+        try {
+            res.clearCookie('token')
+            return res.send({ message: 'Logout successfull!' })
+        } catch (error) {
+            res.send({ message: 'An error has occurred on logout' })
+        }
     }
 
     verify = async (req, res) => {
