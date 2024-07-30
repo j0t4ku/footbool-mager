@@ -6,11 +6,15 @@ import Results from './containers/Results'
 function App() {
 
   return (
-    <>
+    <div>
       <Navbar></Navbar>
-      <Results></Results>
+      <div className='flex justify-center'>
+        <section className='w-5/6 py-6 '>
+          <Results></Results>
+        </section>
+      </div>
       <Footer></Footer>
-    </>
+    </div>
   )
 }
 
