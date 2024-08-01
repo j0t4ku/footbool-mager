@@ -1,12 +1,12 @@
 
-export default function Results() {
+export default function Player() {
     return (
         <div>
             <h1 className="text-4xl font-bold tracking-tight text-gray-900  p-6 text-center">
                 <span className="block">
                     Table of
                     <span className="text-transparent bg-clip-text bg-gradient-to-tr to-cyan-500 from-blue-600">
-                        &nbsp;Results
+                        &nbsp;Player
                     </span>
                 </span>
             </h1>
@@ -16,9 +16,10 @@ export default function Results() {
                     <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                         <thead className="text-left">
                             <tr>
-                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Team 1</th>
-                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Team 2</th>
-                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Marcador</th>
+                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Dorsal</th>
+                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Name</th>
+                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Last Name</th>
+                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Team</th>
                             </tr>
                         </thead>
 

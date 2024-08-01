@@ -1,12 +1,11 @@
-
-export default function Results() {
+export default function Teams() {
     return (
         <div>
             <h1 className="text-4xl font-bold tracking-tight text-gray-900  p-6 text-center">
                 <span className="block">
                     Table of
                     <span className="text-transparent bg-clip-text bg-gradient-to-tr to-cyan-500 from-blue-600">
-                        &nbsp;Results
+                        &nbsp;Teams
                     </span>
                 </span>
             </h1>
@@ -16,18 +15,17 @@ export default function Results() {
                     <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
                         <thead className="text-left">
                             <tr>
-                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Team 1</th>
-                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Team 2</th>
-                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Marcador</th>
+                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Rank</th>
+                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Team</th>
+                                <th className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Pts</th>
                             </tr>
                         </thead>
 
                         <tbody className="divide-y divide-gray-200">
                             <tr>
                                 <td className="whitespace-nowrap px-4 py-2 font-medium text-gray-900">1</td>
-                                <td className="whitespace-nowrap px-4 py-2 text-gray-700">Player  1</td>
-                                <td className="whitespace-nowrap px-4 py-2 text-gray-700">Player 1</td>
-                                <td className="whitespace-nowrap px-4 py-2 text-gray-700">Team 1</td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700">Teams  1</td>
+                                <td className="whitespace-nowrap px-4 py-2 text-gray-700">32</td>
                             </tr>
                         </tbody>
                     </table>

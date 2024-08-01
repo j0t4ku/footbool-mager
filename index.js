@@ -7,6 +7,7 @@ import routesTeams from './routes/teams.js'
 import jwt from '@fastify/jwt'
 import routesUsers from './routes/users.js'
 import cookie from '@fastify/cookie'
+import routesResults from './routes/results.js'
 
 
 const fastify = Fastify({
@@ -50,6 +51,8 @@ fastify.register(routesPlayers, { prefix: '/players' })
 fastify.register(routesTeams, { prefix: '/teams' })
 
 fastify.register(routesUsers, { prefix: '/auth' })
+
+fastify.register(routesResults, { prefix: '/results' })
 
 
 
