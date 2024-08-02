@@ -11,30 +11,25 @@ ResultsModel.init(
             primaryKey: true,
         },
         // Model attributes are defined here
-        team1: {
+        idmatch: {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        team2: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            // allowNull defaults to true
-        },
-        goalTeam1: {
+        goalteam1: {
             type: DataTypes.INTEGER,
             allowNull: false,
             // allowNull defaults to true
         },
-        goalTeam2: {
+        goalteam2: {
             type: DataTypes.INTEGER,
             allowNull: false,
             // allowNull defaults to true
         },
-        victoria: {
-            type: DataTypes.INTEGER,
+        victory: {
+            type: DataTypes.CHAR,
             allowNull: false,
             // allowNull defaults to true
-        },
+        }
     },
     {
         // Other model options go here

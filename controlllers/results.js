@@ -1,5 +1,5 @@
 import { where } from "sequelize"
-import { validatePartialSchema, validateSchema } from "../schemas/results.js"
+import { validatePartialSchema, validateSchema } from "../schemas/match.js"
 
 export class ResultsController {
     constructor({ resultsModel }) {
